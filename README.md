@@ -6,7 +6,12 @@ This repository is follows the updates and new deployments on this DevBox.
 
 # Configuration
 
-As said before, `DevBox` is hosted on a [RPI 3B+](https://www.raspberrypi.com/products/raspberry-pi-3-model-b-plus/) running [Ubuntu](https://ubuntu.com/download/server) as its OS.
+As said before, `DevBox` is hosted on a [RPI 3B+](https://www.raspberrypi.com/products/raspberry-pi-3-model-b-plus/) running [Ubuntu Server 22.04](https://ubuntu.com/download/server) as its OS.
+
+The `RPI 3B+` specs are:
+- 1024 MB Ram
+- Quad Cores 1.4GHz 64-bit
+- 32 GiB SD card
 
 ## Apps
 
