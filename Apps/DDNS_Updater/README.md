@@ -1,7 +1,13 @@
 # DDNS Updater
 
 DDNS Updater is a DNS record updater for cloudflare.
-It's written in pure python3.
+
+This application is made to be Plug-N-Play.
+
+## Features
+
+- Logging
+- Configuration file
 
 ## Setup
 
@@ -35,3 +41,8 @@ crontab -e
 
 */5 * * * * cd /path/to/app && python3 /path/to/app/app.py
 ```
+
+## Todo
+
+- Add support for multiple `zones` and `records`
+- Make it production ready
