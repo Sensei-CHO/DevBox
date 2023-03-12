@@ -24,7 +24,9 @@ These will probably have their own dedicated repository in the future.
 
 The [Deployments](Deployments/) folder contains the things I deployed on my raspberry and its platforms likes `k3s` or `lxd`.
 
-- [K3S](Deployments/k3s/README.md) Installation of k3s.
+- [K3S](Deployments/k3s/README.md) Installation of `k3s`.
+- [Ingress and SSL](Deployments/k3s/) Setup of Ingress controller and SSL certificates for our applications (comming soon).
+- [Portainer](Deployments/k3s/) Deployments of `portainer` on our `k3s` node to deploy apps more easily (comming soon).
 
 ## Contribute
 
