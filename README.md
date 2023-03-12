@@ -24,7 +24,7 @@ These will probably have their own dedicated repository in the future.
 
 The [Deployments](Deployments/) folder contains the things I deployed on my raspberry and its platforms likes `k3s` or `lxd`.
 
-- k3s (comming soon)
+- [K3S](Deployments/k3s/README.md) Installation of k3s.
 
 ## Contribute
 

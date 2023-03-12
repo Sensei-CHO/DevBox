@@ -60,7 +60,7 @@ Now we can export the `kubeconfig` from our `k3s` server:
 cat /etc/rancher/k3s/k3s.yaml
 ```
 
-:warning: In some cases you'll have to edit the `server:` value to your `k3s` server's LAN IP :warning.
+:warning: In some cases you'll have to edit the `server:` value to your `k3s` server's LAN IP :warning:.
 
 To get your `k3s` server's LAN IP:
 
