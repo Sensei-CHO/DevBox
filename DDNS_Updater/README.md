@@ -33,5 +33,5 @@ Configure crontab:
 ```bash
 crontab -e
 
-*/5 * * * * python3 /path/to/app/app.py
+*/5 * * * * cd /path/to/app && python3 /path/to/app/app.py
 ```
