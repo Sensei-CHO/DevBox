@@ -30,7 +30,7 @@ The [Deployments](Deployments/) folder contains the things I deployed on my rasp
 - [Portainer](Deployments/k3s/) Deployments of `portainer` on our `k3s` node to deploy apps more easily (comming soon).
 
 [Host](Deployments/host/)
-- [Fail2Ban](Deployments/host) Installation of `fail2ban` to secure our server (comming soon).
+- [Fail2Ban](Deployments/host/fail2ban/README.md) Installation of `fail2ban` to secure our server (comming soon).
 - [Secure SSH](Deployments/host) Making `SSH` more secure for remote access (comming soon).
 
 ## Contribute
