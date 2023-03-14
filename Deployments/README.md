@@ -11,4 +11,4 @@ Here a deployment is the installation and setup, automatically or not, of an app
 
 [Host](host/)
 - [Fail2Ban](host/fail2ban/README.md) Installation of `fail2ban` to secure our server (comming soon).
-- [Secure SSH](host/) Making `SSH` more secure for remote access (comming soon).
+- [Secure SSH](host/secure_ssh/README.md) Making `SSH` more secure for remote access (comming soon).
