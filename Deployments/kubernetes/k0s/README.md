@@ -6,7 +6,7 @@ For the installation of `k0s` I mainly followed [this steps](https://docs.k0spro
 - modprobe `overlay` `nf_conntrack` `br_netfilter`
 - Added `cgroup_memory=1 cgroup_enable=memory cgroup_enable=cpuset` to `/boot/firmware/cmdline.txt`
 
-I'v also done what's in `k3s` [updates](../k3s/README.md#updates) sections.
+I'v also done what's in the [k3s update section](../k3s/README.md#updates).
 
 ## Remote management
 
