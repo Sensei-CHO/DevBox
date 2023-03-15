@@ -46,3 +46,5 @@ crontab -e
 
 - Add support for multiple `zones` and `records`
 - Make it production ready
+- Add webhook support
+- Better log management (time, size limit)
