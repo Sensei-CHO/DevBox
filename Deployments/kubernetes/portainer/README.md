@@ -11,3 +11,7 @@ To install `portainer` the only thing you have to do is run:
 ```bash
 kubectl apply -n portainer -f https://raw.githubusercontent.com/portainer/k8s/master/deploy/manifests/portainer/portainer.yaml
 ```
+
+> Update from March 15 2023
+
+:warning: This document will change :warning:

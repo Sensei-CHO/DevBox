@@ -24,10 +24,11 @@ These will probably have their own dedicated repository in the future.
 
 The [Deployments](Deployments/) folder contains the things I deployed on my raspberry and its platforms likes `k3s` or `lxd`.
 
-[K3S](Deployments/k3s/)
-- [K3S](Deployments/k3s/installation/README.md) Installation of `k3s`.
-- [Ingress and SSL](Deployments/k3s/) Setup of Ingress controller and SSL certificates for our applications (comming soon).
-- [Portainer](Deployments/k3s/) Deployments of `portainer` on our `k3s` node to deploy apps more easily (comming soon).
+[Kubernetes](Deployments/kubernetes/)
+- [K3S](Deployments/kubernetes/k3s/README.md) Installation of `k3s`.
+- [Ingress and SSL](Deployments/kubernetes/) Setup of Ingress controller and SSL certificates for our applications (comming soon).
+- [Portainer](Deployments/kubernetes/portainer/README.md) Deployments of `portainer` on our `kubernetes` node to deploy apps more easily.
+- [K0S](Deployments/kubernetes/k0s/README.md) Installation of `k0s`.
 
 [Host](Deployments/host/)
 - [Fail2Ban](Deployments/host/fail2ban/README.md) Installation of `fail2ban` to secure our server.
@@ -40,3 +41,8 @@ Comming soon
 ### License
 
 This repository and all its contents are under `Creative Commons Attribution Share Alike 4.0 International` license.
+
+#### Updates
+
+- Reinstalled the `DevBox` OS (Still ubuntu server 22.04)
+- Switched from `k3s` to `k0s` for ressources issues
