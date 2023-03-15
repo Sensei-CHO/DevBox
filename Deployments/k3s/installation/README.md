@@ -72,3 +72,22 @@ I strongly recommend new users to install `kubernetes-dashbord` and `weave-scope
 
 - Kubernetes-dashabord: https://docs.k3s.io/installation/kube-dashboard
 - Weave Scope: https://www.weave.works/docs/scope/latest/installing/#k8s
+
+> Update from 14 March 2023
+
+`DevBox` runs on a raspberry 3B+ you'll have to add `cgroup_memory=1 cgroup_enable=memory` to `/boot/firmware/cmdline.txt` and disable `ufw` if you are using `ubuntu` 
+like I do.
+
+> Update from 15 March 20232
+
+I encountered a LOT of issues with `k3s`:
+- High CPU Load `17.82 15.20 8.06`
+- 800 / ~1024MB RAM Used
+- Reinstallation issues (Pods not running, Services Unavailable, Server refuses connections)
+
+What I did:
+- Disable all `snap` services (`snapd.service`, `snapd.socket`, `snapd.seeded.service`)
+- Installed `runc`
+- Installed `linux-modules-extra-raspi`
+
+And things are getting better but i'll try to make it more efficient.
