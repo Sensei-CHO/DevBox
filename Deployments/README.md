@@ -6,7 +6,7 @@ Here a deployment is the installation and setup, automatically or not, of an app
 
 [Kubernetes](kubernetes/)
 - [K3S](kubernetes/k3s/README.md) Installation of `k3s`.
-- [Ingress and SSL](kubernetes/) Setup of Ingress controller and SSL certificates for our applications (comming soon).
+- [Auto DNS and SSL](kubernetes/auto-dns-ssl/README.md) Setup of Automatic DNS and SSL.
 - [Portainer](kubernetes/portainer/README.md) Deployments of `portainer` on our `kubernetes` node to deploy apps more easily.
 - [K0S](Deployments/kubernetes/k0s/README.md) Installation of `k0s`.
 

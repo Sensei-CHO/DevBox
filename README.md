@@ -26,7 +26,7 @@ The [Deployments](Deployments/) folder contains the things I deployed on my rasp
 
 [Kubernetes](Deployments/kubernetes/)
 - [K3S](Deployments/kubernetes/k3s/README.md) Installation of `k3s`.
-- [Ingress and SSL](Deployments/kubernetes/) Setup of Ingress controller and SSL certificates for our applications (comming soon).
+- [Auto DNS and SSL](Deployments/kubernetes/auto-dns-ssl/README.md) Setup of Automatic DNS and SSL.
 - [Portainer](Deployments/kubernetes/portainer/README.md) Deployments of `portainer` on our `kubernetes` node to deploy apps more easily.
 - [K0S](Deployments/kubernetes/k0s/README.md) Installation of `k0s`.
 
