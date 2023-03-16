@@ -33,6 +33,7 @@ The [Deployments](Deployments/) folder contains the things I deployed on my rasp
 [Host](Deployments/host/)
 - [Fail2Ban](Deployments/host/fail2ban/README.md) Installation of `fail2ban` to secure our server.
 - [Secure SSH](Deployments/host/secure_ssh/README.md) Making `SSH` more secure for remote access.
+- [Netdata](Deployments/host/netdata/README.md) Monitoring with `netdata`
 
 ## Contribute
 
