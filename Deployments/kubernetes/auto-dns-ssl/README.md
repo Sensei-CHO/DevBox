@@ -3,57 +3,30 @@
 Here we are going to configure automatic domain name attribution for our deployments and automatic SSL for security.
 
 Steps:
-- Install `metallb`
+- Configure DNS
 - Install `nginx-ingress`
-- Install `external-dns`
+- Install `cert-manager`
 
-## Metallb
+# Explanation
 
-Metallb is a kubernetes load balancer that attributes LAN IP to our services.
+My `DevBox` is hosted at home behind my ISP's router.
 
-Steps to install are pretty simple:
+![Diagram](images/diagram.png "Setup")
 
-Namespace manifest:
+Using this setup i'll be able to deploy many apps with SSL and a DNS record automatically.
 
-```bash
-kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.10.2/manifests/namespace.yaml
-```
+I wanted to use `external-dns` to avoid DNS wildcard which is not recommanded but that's the only way I found to make this work...
 
-Metallb manifest:
+## DNS
 
-```bash
-kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.10.2/manifests/metallb.yaml
-```
+The only thing you need is an A record pointing to your IP and a wildcard CNAME.
 
-IP Pool manifest (don't forget to configure it):
+I'm using a A record because of `DDNS Updater`. But it is not necessary.
 
-```bash
-kubectl apply -f metallb-configmap.yaml
-```
+![A record](images/cf-A.png "A record")
+![CNAME record](images/cf-CNAME.png "CNAME record")
 
-Now that `metallb` is setup we can test it!
-
-```bash
-kubectl apply -f httpd-test-metallb.yaml
-```
-
-Get the service external IP attributed by `metallb`:
-
-```bash
-kubectl get service -n web
-
-
-NAMESPACE     NAME                 TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)                  AGE
-web           web-server-service   LoadBalancer   10.98.176.182   192.168.1.200   80:30314/TCP             63s
-```
-
-And test!
-
-```bash
-curl 192.168.1.200
-
-<html><body><h1>It works!</h1></body></html>
-```
+If you have a Dynamic IP adress and you use `cloudflare` you can use: [DDNS Updater](../../../Apps/DDNS_Updater/README.md)
 
 ## Nginx ingress
 
@@ -62,7 +35,7 @@ The Ingress is a Kubernetes resource that lets you configure an HTTP load balanc
 Installation:
 
 ```bash
-https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.3/deploy/static/provider/baremetal/deploy.yaml
+kubectl install -f ingress-nginx.yaml
 ```
 
 Add the annotatoin to specify that this is the only instance of Ingress Nginx:
@@ -71,68 +44,39 @@ Add the annotatoin to specify that this is the only instance of Ingress Nginx:
 kubectl -n ingress-nginx annotate ingressclasses nginx ingressclass.kubernetes.io/is-default-class="true"
 ```
 
-Edit the service to switch from NodePort(by default in the manifest) to LoadBalancer:
+Now head to your domain name and test it!
+
+If you got a 404 error don't worry that's normal.
+
+### Testing
+
+To test if our ingress is configured correctly you'll need to deploy a test app like `whoami`
 
 ```bash
-KUBE_EDITOR="nano" kubectl edit service ingress-nginx-controller -n ingress-nginx
+kubectl apply -f whomai.yaml
 ```
 
-```yml
-spec:
-  allocateLoadBalancerNodePorts: true
-  clusterIP: 10.97.71.207
-  clusterIPs:
-  - 10.97.71.207
-  externalTrafficPolicy: Cluster
-  internalTrafficPolicy: Cluster
-  ipFamilies:
-  - IPv4
-  ipFamilyPolicy: SingleStack
-  ports:
-  - appProtocol: http
-    name: http
-    nodePort: 32762
-    port: 80
-    protocol: TCP
-    targetPort: http
-  - appProtocol: https
-    name: https
-    nodePort: 31191
-    port: 443
-    protocol: TCP
-    targetPort: https
-  selector:
-    app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: ingress-nginx
-    app.kubernetes.io/name: ingress-nginx
-  sessionAffinity: None
-  type: NodePort ###Change to LoadBalancer###
-```
-
-Check the IP attributed by `metallb`:
+Wait for the app to deploy an head to the host you set in `whoami.yaml`
 
 ```
-kubectl get services -n ingress-nginx
+curl whoami.example.org
 
-NAMESPACE       NAME                                 TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)                      AGE
-ingress-nginx   ingress-nginx-controller             LoadBalancer   10.97.71.207    192.168.1.200   80:32762/TCP,443:31191/TCP   4m12s
+Hostname: whoami-7c88bd4c6f-zlhnj
+IP: 127.0.0.1
+IP: ::1
+IP: 10.244.0.64
+IP: fe80::ec93:5ff:fe87:230
+RemoteAddr: 10.244.0.1:38304
+GET / HTTP/1.1
+Host: whoami.example.org
+User-Agent: curl/7.81.0
+Accept: */*
+X-Forwarded-For: 192.168.1.254
+X-Forwarded-Host: whoami.example.org
+X-Forwarded-Port: 80
+X-Forwarded-Proto: http
+X-Forwarded-Scheme: http
+X-Real-Ip: 192.168.1.254
+X-Request-Id: 878e5ee5ad293615126fb5426a973f52
+X-Scheme: http
 ```
-
-And test:
-
-```bash
-curl 192.168.1.200
-
-<html>
-<head><title>404 Not Found</title></head>
-<body>
-<center><h1>404 Not Found</h1></center>
-<hr><center>nginx</center>
-</body>
-</html>
-```
-
-Even if the reply is a 404 the `ingress-controller` is working
-
-## External-DNS
-
