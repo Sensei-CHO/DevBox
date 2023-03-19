@@ -47,3 +47,6 @@ This repository and all its contents are under `Creative Commons Attribution Sha
 
 - Reinstalled the `DevBox` OS (Still ubuntu server 22.04)
 - Switched from `k3s` to `k0s` for ressources issues
+- Installed `netdata`
+- Deployed `ingress`
+- Scaled down to 0 `metrics-server` to lower CPU load
