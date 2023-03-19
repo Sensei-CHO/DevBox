@@ -53,7 +53,7 @@ If you got a 404 error don't worry that's normal.
 To test if our ingress is configured correctly you'll need to deploy a test app like `whoami`
 
 ```bash
-kubectl apply -f whomai.yaml
+kubectl apply -f whoami.yaml
 ```
 
 Wait for the app to deploy an head to the host you set in `whoami.yaml`
@@ -109,7 +109,7 @@ And access `localhost:8080` on your machine.
 You can now test `kcert` by deploying a secured version of `whoami`.
 
 ```bash
-kubectl delete -f whomai.yaml #Uninstall the old version
+kubectl delete -f whoami.yaml #Uninstall the old version
 kubectl apply -f whoami-ssl.yaml #Install the SSL version
 ```
 
