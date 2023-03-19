@@ -8,7 +8,7 @@ Here a deployment is the installation and setup, automatically or not, of an app
 - [K3S](kubernetes/k3s/README.md) Installation of `k3s`.
 - [Auto DNS and SSL](kubernetes/auto-dns-ssl/README.md) Setup of Automatic DNS and SSL.
 - [Portainer](kubernetes/portainer/README.md) Deployments of `portainer` on our `kubernetes` node to deploy apps more easily.
-- [K0S](Deployments/kubernetes/k0s/README.md) Installation of `k0s`.
+- [K0S](kubernetes/k0s/README.md) Installation of `k0s`.
 
 [Host](host/)
 - [Fail2Ban](host/fail2ban/README.md) Installation of `fail2ban` to secure our server.
