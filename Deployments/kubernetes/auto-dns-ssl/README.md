@@ -5,7 +5,7 @@ Here we are going to configure automatic domain name attribution for our deploym
 Steps:
 - Configure DNS
 - Install `nginx-ingress`
-- Install `cert-manager`
+- Install `kcert`
 
 # Explanation
 
@@ -79,4 +79,36 @@ X-Forwarded-Scheme: http
 X-Real-Ip: 192.168.1.254
 X-Request-Id: 878e5ee5ad293615126fb5426a973f52
 X-Scheme: http
+```
+
+
+## Kcert
+
+[Kcert](https://github.com/nabsul/kcert) is a lightweight [cert-manager](https://cert-manager.io/) alternative.
+
+Installation:
+
+```bash
+kubectl apply -f kcert.yaml
+```
+
+Don't forget to edit `ACME__EMAIL`
+
+Access the UI:
+
+`Kcert` has a WebUI to help you see the registered certificates and Ingress
+
+```bash
+kubectl -n kcert port-forward svc/kcert 8080
+```
+
+And access `localhost:8080` on your machine.
+
+![Kcert](images/kcert.png "Kcert dashboard")
+
+You can now test `kcert` by deploying a secured version of `whoami`.
+
+```bash
+kubectl delete -f whomai.yaml #Uninstall the old version
+kubectl apply -f whoami-ssl.yaml #Install the SSL version
 ```
