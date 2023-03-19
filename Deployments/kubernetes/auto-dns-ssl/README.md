@@ -112,3 +112,5 @@ You can now test `kcert` by deploying a secured version of `whoami`.
 kubectl delete -f whomai.yaml #Uninstall the old version
 kubectl apply -f whoami-ssl.yaml #Install the SSL version
 ```
+
+Wait a bit and now you have SSL/TLS secured web apps!
