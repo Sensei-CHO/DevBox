@@ -31,7 +31,7 @@ The [Deployments](Deployments/) folder contains the things I deployed on my rasp
 - [Portainer](Deployments/kubernetes/portainer/README.md) Deployments of `portainer` on our `kubernetes` node to deploy apps more easily.
 - [K0S](Deployments/kubernetes/k0s/README.md) Installation of `k0s`.
 - [External services](Deployments/kubernetes/expose-external-service/README.md) Exposing external services with `k0s`.
-- [Registry]() Host a docker registry to deploy our apps.
+- [Registry](Deployments/kubernetes/docker-registry/README.md) Host a docker registry to deploy our apps.
 
 [Host](Deployments/host/)
 - [Fail2Ban](Deployments/host/fail2ban/README.md) Installation of `fail2ban` to secure our server.
