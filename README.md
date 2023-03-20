@@ -19,6 +19,7 @@ The [Apps](Apps/) folder contains the apps I created and tested on the `DevBox`.
 These will probably have their own dedicated repository in the future.
 
 - [DDNS Updater](Apps/DDNS_Updater/README.md) Simple DNS record updater for cloudflare.
+- [Website](Apps/website/README.md) Created a simple `vuejs` web page for `DevBox`
 
 ## Deployments
 
